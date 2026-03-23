@@ -1,4 +1,4 @@
- # mise.toml
+# mise.toml
 
 [tasks.up]
 description = "Start all services"
