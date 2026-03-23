@@ -1,0 +1,17 @@
+ # mise.toml
+
+[tasks.up]
+description = "Start all services"
+run = "docker compose up -d"
+
+[tasks.down]
+description = "Stop all services"
+run = "docker compose down"
+
+[tasks.restart]
+description = "Restart all services"
+depends = ["down", "up"]  # down → up の順に実行
+
+[tasks.logs]
+description = "Follow logs"
+run = "docker compose logs -f {{arg(name='service', default='')}}"
