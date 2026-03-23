@@ -1,0 +1,17 @@
+# tasks/docker.toml
+
+[up]
+description = "Start all services"
+run = "docker compose up -d"
+
+[down]
+description = "Stop all services"
+run = "docker compose down"
+
+[restart]
+description = "Restart all services"
+depends = ["down", "up"]  # down → up の順に実行
+
+[logs]
+description = "Follow logs"
+run = "docker compose logs -f {{arg(name='service', default='')}}"
