@@ -10,7 +10,8 @@ run = "docker compose down"
 
 [restart]
 description = "Restart all services"
-depends = ["down", "up"]  # down → up の順に実行
+depends = ["down"]
+depends_post = ["up"]  # down → up
 
 [logs]
 description = "Follow logs"
